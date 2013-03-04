@@ -1,0 +1,519 @@
+Home >  Reference Guides  > .NET Reference Guide
+.NET Reference Guide
+
+Hosted by Jim MischelJim Mischel
+
+Guide Contents
+
+Guide Contents
+
+    * Table of Contents
+          o .NET Book Recommendations
+          o What Is .NET?
+          o The Microsoft .NET Framework
+          o The Common Language Runtime (CLR), the Common Type System (CTS), and the Common Language Specification (CLS)
+          o .NET Framework Class Library
+          o Visual Studio .NET
+          o .NET Enterprise Servers and .NET My Services
+          o .NET Compliant Languages
+          o C#
+          o Visual Basic .NET (VB .NET)
+          o ASP.NET
+          o XML Web Services
+          o ADO.NET
+          o XML.NET
+          o Windows Forms
+          o Why .NET?
+          o Displaying Errors with the Error Provider
+          o COM Interoperability
+          o Comparing Java and .NET
+          o Calling Unmanaged Code
+          o .NET Application Security
+          o Code Access Security
+          o .NET Standards Support
+          o Numeric Types in the .NET Framework
+          o Working with Strings
+          o Formatting Strings
+          o Trimming Character Strings
+          o Comparing Strings in .NET 2.0
+          o Arrays and Collections
+          o Arrays as Class Members
+          o Sorting a Multi-Dimensional Array
+          o File I/O (System.IO)
+          o Working with File Names
+          o Using the File System
+          o Working with Files and Directories
+          o Monitoring the File System
+          o Working with Streams
+          o Working with Text Encodings
+          o Working with Date and Time
+          o Extending the DateTime Class
+          o Fun with Dates
+          o Exceptions
+          o Delegates
+          o Events
+          o Asynchronous Programming
+          o Asynchronous File I/O
+          o Timers
+          o Random Numbers
+          o Serialization
+          o MultiThreading (System.Threading)
+          o Multi-Threading Overview
+          o The Managed Thread Pool
+          o Managed Threading
+          o Thread Synchronization
+          o Synchronizing Data Access
+          o Trace Debugging
+          o Tracing in .NET 2.0
+          o ASP.NET Trace
+          o Validating User Input in ASP.NET Web Pages
+          o Event Logging
+          o Monitoring Application Performance
+          o Accessing the Registry
+          o Accessing Environment Information
+          o Environment Variables in .NET 2.0
+          o Managing Windows Forms Applications
+          o Working with Email
+          o Working with Graphics
+          o Animating a Background
+          o Working with Images
+          o Drawing Cycloid Curves
+          o Simulating the Spirograph
+          o Building International Web Applications
+          o .NET Compact Framework
+          o Mobile Web Development with ASP.NET
+          o Speech Technologies
+          o Microsoft MapPoint Web Service
+          o Working with Typed DataSets
+          o Using Relationships in DataSets
+          o DataColumn Expressions
+          o Playing Simple Sounds
+          o Playing Sounds with .NET 2.0
+          o Returning an Image in a Web Page
+          o RSS
+          o Best Practices ó Project Structure
+          o Best Practices ó Application Blocks
+          o The Data Access Application Block
+          o The Exception Management Application Block
+          o Best Practices ó Performance
+          o Best Practices ó Performance and Scalability
+          o Best Practices - Testing
+          o Reading the Tea Leaves, 2005
+          o Predictions: A Look Back at 2005, and a Look Ahead to 2006
+          o .NET Downloads
+          o Application Deployment Overview
+          o Application Deployment ó Versioning
+          o Application Deployment ó Version Policy
+          o Application Deployment ó Packaging and Distribution
+          o .NET Remoting Overview
+          o A Remoting Demonstration
+          o Remoting Configuration
+          o Remoting: Lifetimes and Leases
+          o Remoting: Other Issues
+          o Attributes
+          o Writing Custom Attributes
+          o Accessing Attributes in Code
+          o Reflection
+          o Class Design: Inheritance, Interface, or Composition?
+          o The TriTryst Game
+          o Console Applications in .NET 2.0
+          o New File I/O Methods in .NET 2.0
+          o Building Projects with MSBuild
+          o Unmanaged Callbacks in .NET 2.0
+          o Timer Troubles
+          o Non-Rectangular Windows Forms
+          o Windows Forms Transparency
+          o 10 Things I Hate About Visual Basic
+          o 10 Things I Hate About C#
+          o Background Processing with Idle Time
+          o Scaling Windows Forms
+          o Reading and Writing Binary Data
+          o New Memory Management Functions in .NET 2.0
+          o Compatibility Between .NET 1.1 and .NET 2.0
+          o Managed Debugging Assistants in .NET 2.0
+          o XDir: A Program for Viewing Directory Sizes
+          o The Microsoft.VisualBasic Namespace
+          o Operator Overloading
+          o Working with GPS Data
+                + The GPX Exchange Format
+                + Reading Tracks
+                + Computing Track Information in GPS
+                + Displaying Track Data
+                + Opening the File
+                + Filling the Points Listbox
+                + Displaying Elevation Data
+                + Plotting Elevation Points
+                + Cleaning Up the Code
+                + Extracting Common Functionality with Traditional Delegates
+                + Anonymous Methods
+                + Resizing the Display Panel
+                + Parse and TryParse
+          o Hidden Visual Studio Tools
+          o .NET 3.0
+          o The .NET 2.0 Stopwatch Class
+          o Nullable Types
+          o Drawing Rotated Text
+          o Unsafe Code
+          o Other .NET Languages
+          o Compiler Directives
+          o Safe Handles
+          o Predictions, 2007 Edition
+          o New Features in C# 3.0
+          o Generics
+          o Network Client Programming
+          o On the Misuse of Exceptions
+          o Maximum Object Size in .NET
+          o Matching String Endings
+          o Allocating Small Data Structures
+          o Grumbling About Limitations
+          o Some Thoughts on the Nature of What We Do
+          o Working with Predicates in Collections
+          o Working with DataReaders
+          o Outputting XML with XmlWriter
+          o Writing XML Data
+          o Working with Compression
+          o Canonical URIs
+          o Constructing URIs
+          o Using OneWayAttribute for Remote Calls
+          o Selecting a Garbage Collector
+          o Linked List
+          o Linked List Application - The MRU List
+          o Auto-implemented Properties in C#
+          o The HashSet Collection
+          o Looking Ahead: 2018
+          o An Experiment in Optimization
+          o A Larger Integer
+          o Extension Methods New
+          o Language Integrated Query (LINQ) New
+    * Informit Reference Library
+          o Sams Teach Yourself Visual Studio .NET 2003 in 21 Days
+
+< BackPage 521 of 634Next >
+
+Print E-Mail Discuss
+Computing Track Information in GPS
+
+Last updated Jul 21, 2006.
+
+Given the time, latitude, longitude, and elevation of each waypoint, we can compute the time and distance between each two waypoints, the elevation change, and the speed. Computing the time and elevation change is a simple matter of subtracting the values of the second waypoint from the first waypoint, and you can compute the speed by dividing the distance by the elapsed time. Computing the distance covered can become very involved because weíre not really moving in a straight line, but rather in a slight curve over the earthís surface.
+
+The shortest distance between two points on a sphere is the great-circle distance, the computation of which is a well-known problem. The great-circle distance calculation is further complicated because the Earth isnít really a sphere, but rather a flattened spheroid. We could use the great-circle distance formula, but for the short distances weíre working with here (usually less than 300 meters) a flat earth approximation is fine.
+
+If we use a flat earth approximation, then the distance calculation uses the Pythagorean theorem:
+
+distance = sqrt(dlat*dlat + dlon*dlon)
+
+Where dlat is the difference in latitudes, and dlon is the difference in longitudes. If we want to take the elevation change into account, then we just need to add the elevation difference to the calculation:
+
+distance = sqrt(dlat*dlat + dlon*dlon + dele*dele)
+
+The direction (course) between two points is:
+
+course = atan2(dlon, dlat) mod (2*pi)
+
+Putting all of that together into a C# or Visual Basic function takes a little bit more work because we have to convert the coordinates to radians, do the computation, and then convert the results to meters and degrees. The function GetCourseAndDistance shown below handles all the messy work:
+[C#]
+
+// flat earth approximation
+static void GetCourseAndDistance(wptType pt1, wptType pt2, ref double course, ref double dist)
+{
+  // convert latitude and longitude to radians
+  double lat1 = DegreesToRadians((double)pt1.lat);
+  double lon1 = DegreesToRadians((double)pt1.lon);
+  double lat2 = DegreesToRadians((double)pt2.lat);
+  double lon2 = DegreesToRadians((double)pt2.lon);
+
+  // compute latitude and longitude differences
+  double dlat = lat2 - lat1;
+  double dlon = lon2 - lon1;
+
+  double distanceNorth = dlat;
+  double distanceEast = dlon * Math.Cos(lat1);
+
+  // compute the distance in radians
+  dist = Math.Sqrt(distanceNorth * distanceNorth + distanceEast * distanceEast);
+
+  // and convert the radians to meters
+  dist = RadiansToMeters(dist);
+
+  // add the elevation difference to the calculation
+  double dele = (double)pt2.ele - (double)pt1.ele;
+  dist = Math.Sqrt(dist * dist + dele * dele);
+
+  // compute the course
+  course = Math.Atan2(distanceEast, distanceNorth) % (2 * Math.PI);
+  course = RadiansToDegrees(course);
+  if (course < 0)
+    course += 360;
+}
+
+[Visual Basic]
+
+í flat earth approximation
+Sub GetCourseAndDistance(ByVal pt1 As wptType, ByVal pt2 As wptType, ByRef course As Double, ByRef dist As Double)
+  í convert latitude and longitude to radians
+  Dim lat1 As Double = DegreesToRadians(CDbl(pt1.lat))
+  Dim lon1 As Double = DegreesToRadians(CDbl(pt1.lon))
+  Dim lat2 As Double = DegreesToRadians(CDbl(pt2.lat))
+  Dim lon2 As Double = DegreesToRadians(CDbl(pt2.lon))
+
+  í compute latitude and longitude differences
+  Dim dlat As Double = lat2 - lat1
+  Dim dlon As Double = lon2 - lon1
+
+  Dim distanceNorth As Double = dlat
+  Dim distanceEast As Double = dlon * Math.Cos(lat1)
+
+  í compute the distance in radians
+  dist = Math.Sqrt(distanceNorth * distanceNorth + distanceEast * distanceEast)
+
+  í and convert the radians to meters
+  dist = RadiansToMeters(dist)
+
+  í add the elevation difference to the calculation
+  Dim dele As Double = CDbl(pt2.ele - pt1.ele)
+  dist = Math.Sqrt(dist * dist + dele * dele)
+
+  í compute the course
+  course = Math.Atan2(distanceEast, distanceNorth) Mod (2 * Math.PI)
+  course = RadiansToDegrees(course)
+  If course < 0 Then
+    course += 360
+  End If
+End Sub
+
+That code makes use of a few conversion functions to convert between radians, degrees, and meters. All of the trigonometric functions in the Math namespace expect their arguments to be in radians, so we have to convert the latitude and longitude values to radians. The initial distance calculation returns its result in radians that represent an arc distance that we have to convert to meters. The direction (course) calculation also is expressed in radians, which we convert to degrees. The conversion functions are:
+[C#]
+
+static double DegreesToRadians(double degrees)
+{
+  return degrees * Math.PI / 180.0;
+}
+
+static double RadiansToDegrees(double radians)
+{
+  return radians * 180.0 / Math.PI;
+}
+
+static double RadiansToNauticalMiles(double radians)
+{
+  // There are 60 nautical miles for each degree
+  return radians * 60 * 180 / Math.PI;
+}
+
+static double RadiansToMeters(double radians)
+{
+  // there are 1852 meters in a nautical mile
+  return 1852 * RadiansToNauticalMiles(radians);
+}
+
+[Visual Basic]
+
+Function DegreesToRadians(ByVal degrees As Double) As Double
+  Return degrees * Math.PI / 180.0
+End Function
+
+Function RadiansToDegrees(ByVal radians As Double) As Double
+  Return radians * 180.0 / Math.PI
+End Function
+
+Function RadiansToNauticalMiles(ByVal radians As Double) As Double
+  í There are 60 nautical miles for each degree
+  Return radians * 60 * 180 / Math.PI
+End Function
+
+Function RadiansToMeters(ByVal radians As Double) As Double
+  í there are 1852 meters in a nautical mile
+  Return 1852 * RadiansToNauticalMiles(radians)
+End Function
+
+With a function to compute the distance between each two points, we can modify the code that outputs the track points so that it will show the course and distance, and also accumulate the distances and elevation changes so that we can calculate the total distance and elevation gain for the entire track. For bicycling, Iím especially interested in how much climbing I did, so I add up the elevation gains but donít take into account the drops in elevation. The modified OutputTrack function is shown below.
+[C#]
+
+static void OutputTrack(trkType track)
+{
+  Console.WriteLine("Track í{0}í", track.name);
+  if (track.trkseg.Length > 0)
+  {
+  Console.WriteLine("{0} segments", track.trkseg.Length);
+  foreach (trksegType seg in track.trkseg)
+  {
+    Console.WriteLine("{0} Points", seg.trkpt.Length);
+    wptType wptPrev = seg.trkpt[0];
+    double totalDist = 0;
+    double elevationGain = 0;
+    foreach (wptType wpt in seg.trkpt)
+    {
+    double course = 0;
+    double dist = 0;
+    GetCourseAndDistance(wptPrev, wpt, ref course, ref dist);
+    totalDist += dist;
+    if (wpt.ele > wptPrev.ele)
+    {
+      elevationGain += (double)(wpt.ele - wptPrev.ele);
+    }
+    Console.WriteLine("{0} {1} {2} {3} {4} {5}", wpt.time, wpt.lat, wpt.lon, wpt.ele, course, dist);
+    wptPrev = wpt;
+    }
+    Console.WriteLine("Total distance = {0} kilometers. Elevation gain = {1} meters.",
+    totalDist / 1000, elevationGain);
+  }
+  }
+}
+
+[Visual Basic]
+
+Sub OutputTrack(ByVal track As trkType)
+  Console.WriteLine("Track í{0}í", track.name)
+  If track.trkseg.Length > 0 Then
+    Console.WriteLine("{0} segments", track.trkseg.Length)
+    Dim seg As trksegType
+    For Each seg In track.trkseg
+      Console.WriteLine("{0} Points", seg.trkpt.Length)
+      Dim wpt As wptType
+      Dim wptPrev As wptType = seg.trkpt(0)
+      Dim totalDist As Double = 0
+      Dim elevationGain As Double = 0
+      For Each wpt In seg.trkpt
+        Dim course As Double = 0
+        Dim dist As Double = 0
+        GetCourseAndDistance(wptPrev, wpt, course, dist)
+        totalDist += dist
+        If wpt.ele > wptPrev.ele Then
+          elevationGain += CDbl(wpt.ele - wptPrev.ele)
+        End If
+        Console.WriteLine("{0} {1} {2} {3} {4} {5}", wpt.time, wpt.lat, wpt.lon, wpt.ele, course, dist)
+        wptPrev = wpt
+      Next
+      Console.WriteLine("Total distance = {0} kilometers. Elevation gain = {1} meters.", _
+          totalDist / 1000, elevationGain)
+    Next
+  End If
+End Sub
+
+Running that code on my DamLoop.gpx file, I get a total of 93.687 kilometers, or 58.214 miles. Thatís close enough to the 58.3 miles reported by Garmin MapSource that Iím not going to go looking for the difference.
+< BackPage 521 of 634Next >
+
+Digg Digg Del.icio.us Del.icio.us Save to Your Account Your Account
+Discussions
+
+DataReader
+    Posted Oct 3, 2007 11:54 AM by mpadierna
+    0 Replies
+How to do action predicate for value types
+    Posted Sep 27, 2007 10:55 AM by prakashnagarajan
+    0 Replies
+Array.Find
+    Posted Sep 26, 2007 12:28 PM by aidehua
+    0 Replies
+
+Make a New Comment
+Subject:	
+Username:	jeremy_ellman Change Username
+Message:	
+	
+
+Formatting: Bold: <strong>text</strong> Italic: <em>text</em>
+	
+Related Resources
+
+    * Podcasts
+    * Blogs
+    * Articles
+    * Store
+
+See More Podcasts
+
+Jim MischelCounting on side effects
+    By Jim MischelMarch 12, 2008 1 Comment 
+
+    I've long been suspicious of code that depends on side effects, like depending on the order of expression evaluation.  In the past, one had to worry about stuff like this because language standards often didn't specify expression evaluation order, which meant that code that worked when compiled with Microsoft C, for example, wouldn't work when compiled with Borland C (or vice-versa).  I wrote some code like that today in C#, and wondered if it's considered bad practice.
+
+Jim MischelWhy no IParseable interface?
+    By Jim MischelFebruary 26, 2008 No Comments 
+
+    I found it curious that in the .NET Framework objects can implement the IFormattable interface to expose custom formatting, but there is no corresponding IParseable interface. Not only is this curious, it's somewhat frustrating. I was going to write a rant asking why the lack of IParseable and present a possible solution, and then I discovered the very good reason why such a thing hasn't been done. 
+
+Jim MischelTake back the desktop!
+    By Jim MischelFebruary 19, 2008 1 Comment 
+
+    At some point in the 30 years or so that I've been working with computers, we've lost sight of the most important fact:  computers are supposed to be tools that serve us.  All too often these days, I feel like I'm the one serving the computer.  At other times, the computer reminds me of the over-eager employee who comes running to the office after completing every minor task, enthusiastically telling me how impressed I should be that he managed to find and actually work the photocopier.
+
+See More Blogs
+
+Avoiding IT Errors with a .NET Slant
+    By Stephan Onisick
+
+Personalization with Profiles and Web Parts in ASP.NET 2.0
+    By Randy Connolly
+
+Text File Operations in .NET
+    By John Traenkenschuh
+
+See All Related Articles
+
+Essential Windows Communication Foundation (WCF): For .NET Framework 3.5Essential Windows Communication Foundation (WCF): For .NET Framework 3.5
+    By Steve Resnick, Richard Crane, Chris Bowen
+    Add To Cart$34.99
+
+ASP.NET 3.5 UnleashedASP.NET 3.5 Unleashed
+    By Stephen Walther
+    Add To Cart$59.99
+
+Understanding Windows CardSpace: An Introduction to the Concepts and Challenges of Digital IdentitiesUnderstanding Windows CardSpace: An Introduction to the Concepts and Challenges of Digital Identities
+    By Vittorio Bertocci, Garrett Serack, Caleb Baker
+    Add To Cart$31.49
+
+See All Products
+InformIT
+
+    * Topics
+          o Business & Management
+          o Certification
+          o Computer Science
+          o Databases
+          o Engineering
+          o Graphics & Web Design
+          o Hardware
+          o Home & Office Computing
+          o Information Management
+          o Networking
+          o Operating Systems, Server
+          o Open Source
+          o Process Improvement
+          o Programming
+          o Security
+          o Software Development & Management
+          o Web Development
+          o Web Services
+    * Store
+    * Authors
+    * Safari Books Online
+    * Imprints
+          o Addison-Wesley Professional
+          o Cisco Press
+          o Exam Cram
+          o IBM Press
+          o Prentice Hall Professional
+          o Que Publishing
+          o Sams Publishing
+    * Explore
+          o About
+          o Affiliates
+          o Articles
+          o Blogs
+          o Podcasts
+          o Press
+          o Reference Guides
+          o Reference Library
+          o User Groups
+
+Account Hello jeremy_ellman | Account | Log Out
+View Cart View your cart
+Search 
+
+About | Advertise | Affiliates | Contact Us | Jobs | Legal Notice | Privacy Policy | Press | Promotions | Site Map | Write For Us
+
+Å© 2008 Pearson Education, Informit. All rights reserved.
+800 East 96th Street, Indianapolis, Indiana 46240
+Informit Network
